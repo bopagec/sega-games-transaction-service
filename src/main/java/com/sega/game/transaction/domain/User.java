@@ -1,5 +1,6 @@
 package com.sega.game.transaction.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -22,6 +23,7 @@ public class User {
     private String email;
     private LocalDate dob;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "user")
     private Set<Transaction> transactions;
 

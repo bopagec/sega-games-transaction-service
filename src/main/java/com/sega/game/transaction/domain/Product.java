@@ -1,5 +1,6 @@
 package com.sega.game.transaction.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -20,6 +21,7 @@ public class Product {
     private String name;
     private double price;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "product")
     private Set<Transaction> transaction;
 }

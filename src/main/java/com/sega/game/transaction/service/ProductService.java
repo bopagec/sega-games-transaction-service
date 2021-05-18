@@ -7,11 +7,8 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class ProductService {
+    @Autowired
     private ProductRepository productRepository;
-
-    public ProductService(ProductRepository productRepository){
-        this.productRepository = productRepository;
-    }
 
     public void saveProduct(Product product){
         productRepository.save(product);
