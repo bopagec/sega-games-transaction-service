@@ -5,13 +5,11 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.ArrayList;
-import java.util.Collection;
-
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class ResponseDto {
-    Collection<TransactionDto> transactions = new ArrayList<>();
+public class RequestDto {
+    private long productId;
+    private long userId;
 }

@@ -10,9 +10,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.StreamSupport;
 
 @Service
 public class TransactionService {
@@ -23,7 +23,7 @@ public class TransactionService {
         transactionRepository.save(transaction);
     }
 
-    public ResponseEntity<ResponseDto> allTransactions(){
+    public ResponseEntity<ResponseDto> allTransactions() {
         Iterable<Transaction> transactions = transactionRepository.findAll();
         List<TransactionDto> dtoList = new ArrayList<>();
 
@@ -34,7 +34,41 @@ public class TransactionService {
         return new ResponseEntity<>(createResponseDto(dtoList), HttpStatus.OK);
     }
 
-    private ResponseDto createResponseDto(List<TransactionDto> dtoList){
+    public ResponseEntity<ResponseDto> getTransaction(long id) {
+        Optional<Transaction> optTransaction = transactionRepository.findById(id);
+        List<TransactionDto> dtoList = new ArrayList<>();
+
+        if (optTransaction.isPresent()) {
+            dtoList.add(createTransactionDto(optTransaction.get()));
+            return new ResponseEntity<>(createResponseDto(dtoList), HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(createResponseDto(dtoList), HttpStatus.NO_CONTENT);
+        }
+    }
+
+    public ResponseEntity<ResponseDto> getTransactionsByUser(long userId) {
+        Collection<Transaction> transactions = transactionRepository.findByUserId(userId);
+        List<TransactionDto> dtoList = new ArrayList<>();
+
+        transactions.forEach(transaction -> {
+            dtoList.add(createTransactionDto(transaction));
+        });
+
+        return new ResponseEntity<>(createResponseDto(dtoList), HttpStatus.OK);
+    }
+
+    public ResponseEntity<ResponseDto> getTransactionsByProduct(long productId) {
+        Collection<Transaction> transactions = transactionRepository.findByProductId(productId);
+        List<TransactionDto> dtoList = new ArrayList<>();
+
+        transactions.forEach(transaction -> {
+            dtoList.add(createTransactionDto(transaction));
+        });
+
+        return new ResponseEntity<>(createResponseDto(dtoList), HttpStatus.OK);
+    }
+
+    private ResponseDto createResponseDto(Collection<TransactionDto> dtoList) {
         return new ResponseDto().builder().transactions(dtoList).build();
     }
 
@@ -46,17 +80,4 @@ public class TransactionService {
                 .transactionId(transaction.getId())
                 .build();
     }
-
-    public ResponseEntity<ResponseDto> getTransaction(long id){
-        Optional<Transaction> optTransaction = transactionRepository.findById(id);
-        List<TransactionDto> dtoList = new ArrayList<>();
-
-        if(optTransaction.isPresent()){
-            dtoList.add(createTransactionDto(optTransaction.get()));
-            return new ResponseEntity<>(createResponseDto(dtoList), HttpStatus.OK);
-        }else{
-            return new ResponseEntity<>(createResponseDto(dtoList), HttpStatus.NO_CONTENT);
-        }
-    }
-
 }
