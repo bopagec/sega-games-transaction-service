@@ -37,6 +37,10 @@ TransactionController has 1 POST and 4 GET end points
 * /transactions/user/{userId} - GET - to view transactions by user id
 * /transactions/product/{productId} - GET to view transactions by product id
 
+## Test
+* postman json file included in the root directory "SEGA.postman_collection.json" to test on postman
+* h2 console enabled on http://localhost:8080/h2-console/login.jsp with default credentials (username: sa, password:<blank>)
+
 ## Technologies involved
 
 * Java 11
