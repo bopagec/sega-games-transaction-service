@@ -32,12 +32,14 @@ TransactionController has 1 POST and 4 GET end points
     	"productId": 10
        }
 
-* /transactions/all - GET - to view all transactions
+* /transactions/all - GET - to view all transactions (ie: http://localhost:9090/transactions/all)
 * /transactions/{transactionId} - GET - to view transaction by transaction id
 * /transactions/user/{userId} - GET - to view transactions by user id
 * /transactions/product/{productId} - GET to view transactions by product id
 
 ## Test
+* this has been pushed into docker-hub. If you have docker install you can run by proving the command below
+  docker run -p 9090:8080 bopagec/docker-sega-game-transaction-api
 * postman json file included in the root directory "SEGA.postman_collection.json" to test on postman
 * h2 console enabled on http://localhost:8080/h2-console/login.jsp with default credentials (username: sa, password:<blank>)
 
@@ -50,6 +52,7 @@ TransactionController has 1 POST and 4 GET end points
 * JUnit 5 (Jupiter) with MockMvc
 * Lombok
 * Integrate with Travis-ci
+* Docker
 
 ## Improvements to consider
 due to the time constrain, spring security has not been introduced.
