@@ -7,11 +7,12 @@ import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 public class ResponseDto {
-    Collection<TransactionDto> transactions = new ArrayList<>();
+    List<TransactionDto> transactions = new ArrayList<>();
 }

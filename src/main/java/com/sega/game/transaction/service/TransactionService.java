@@ -4,6 +4,7 @@ import com.sega.game.transaction.domain.Transaction;
 import com.sega.game.transaction.dto.ResponseDto;
 import com.sega.game.transaction.dto.TransactionDto;
 import com.sega.game.transaction.repository.TransactionRepository;
+import com.sega.game.transaction.utils.ResponseUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,13 +15,15 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
+import static com.sega.game.transaction.utils.ResponseUtils.*;
+
 @Service
 public class TransactionService {
     @Autowired
     private TransactionRepository transactionRepository;
 
-    public void transact(Transaction transaction) {
-        transactionRepository.save(transaction);
+    public Transaction transact(Transaction transaction) {
+        return transactionRepository.save(transaction);
     }
 
     public ResponseEntity<ResponseDto> allTransactions() {
@@ -68,16 +71,5 @@ public class TransactionService {
         return new ResponseEntity<>(createResponseDto(dtoList), HttpStatus.OK);
     }
 
-    private ResponseDto createResponseDto(Collection<TransactionDto> dtoList) {
-        return new ResponseDto().builder().transactions(dtoList).build();
-    }
 
-    private TransactionDto createTransactionDto(Transaction transaction) {
-        return new TransactionDto().builder()
-                .price(transaction.getProduct().getPrice())
-                .productName(transaction.getProduct().getName())
-                .userId(transaction.getUser().getId())
-                .transactionId(transaction.getId())
-                .build();
-    }
 }

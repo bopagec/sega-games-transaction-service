@@ -41,9 +41,9 @@ public class TransactionController {
             Transaction transaction = new Transaction().builder()
                     .user(optUser.get())
                     .product(optProduct.get()).build();
-            transactionService.transact(transaction);
-            logger.info("transaction saved: {}", transaction);
-            return new ResponseEntity(transaction, HttpStatus.CREATED);
+            Transaction transact = transactionService.transact(transaction);
+            logger.info("transaction saved: {}", transact);
+            return new ResponseEntity(transact, HttpStatus.CREATED);
         } else {
             logger.info("transaction not saved");
             return new ResponseEntity("", HttpStatus.BAD_REQUEST);
@@ -67,7 +67,6 @@ public class TransactionController {
         logger.info("getTransactionsByUser method called with userId {}", userId);
         return transactionService.getTransactionsByUser(userId);
     }
-
 
     @GetMapping("/transactions/product/{productId}")
     public ResponseEntity<ResponseDto> getTransactionsByProduct(@PathVariable long productId) {
