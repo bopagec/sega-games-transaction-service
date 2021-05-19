@@ -45,6 +45,7 @@ TransactionController has 1 POST and 4 GET end points
 * H2 in-memory Database
 * JUnit 5 (Jupiter) with MockMvc
 * Lombok
+* Integrate with Travis-ci
 
 ## Improvements to consider
 due to the time constrain, spring security has not been introduced.
