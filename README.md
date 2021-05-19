@@ -25,7 +25,7 @@ at the start-up of the application CommandLineRunner will populate the following
 
 ## API End points
 TransactionController has 1 POST and 4 GET end points 
-
+````
 * /transact - POST - to perform a transaction with body 
   ie: {
     	"userId": 11,
@@ -36,10 +36,12 @@ TransactionController has 1 POST and 4 GET end points
 * /transactions/{transactionId} - GET - to view transaction by transaction id
 * /transactions/user/{userId} - GET - to view transactions by user id
 * /transactions/product/{productId} - GET to view transactions by product id
-
+````
 ## Test
-* this has been pushed into docker-hub. If you have docker install you can run by proving the command below
+* this has been pushed into docker-hub. If you have docker installed on your machine you can run by proving the command below
+````
   docker run -p 9090:8080 bopagec/docker-sega-game-transaction-api
+````
 * postman json file included in the root directory "SEGA.postman_collection.json" to test on postman
 * h2 console enabled on http://localhost:8080/h2-console/login.jsp with default credentials (username: sa, password:<blank>)
 
