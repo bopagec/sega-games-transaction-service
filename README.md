@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/bopagec/sega-games-transaction-service.svg?branch=master)](https://travis-ci.com/bopagec/sega-games-transaction-service)
+
 SEGA GAMES - Transaction Service (Simple API)
 =============================================
 
