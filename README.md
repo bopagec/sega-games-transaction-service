@@ -1,5 +1,5 @@
-SEGA - Transaction Service (Simple API)
-=======================================
+SEGA GAMES - Transaction Service (Simple API)
+=============================================
 
 ### Task (as given)
 The task is to design and build a simple REST API.
