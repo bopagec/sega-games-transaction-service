@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: docker-k8s-sega-games-transaction-service
-        image: bopagec/docker-sega-game-transaction-api
+        image: bopagec/docker-saga-games-transaction-service
         ports:
         - containerPort: 8080

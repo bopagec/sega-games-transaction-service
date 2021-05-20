@@ -40,7 +40,7 @@ TransactionController has 1 POST and 4 GET end points
 ## Test
 * this has been pushed into docker-hub. If you have docker installed on your machine you can run by proving the command below
 ````
-  docker run -p 9090:8080 bopagec/docker-sega-game-transaction-api
+  docker run -p 9090:8080 bopagec/docker-saga-games-transaction-service
 ````
 * this also has been deployed on Google Kubernetes Engine, below is the IP for the Service
 ````
