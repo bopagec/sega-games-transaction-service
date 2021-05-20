@@ -45,12 +45,13 @@ TransactionController has 1 POST and 4 GET end points
 * this also has been deployed on Google Kubernetes Engine, below is the IP for the Service
 ````
 http://35.224.30.240/transactions/all
-```
+````
 * postman json file included in the root directory "SEGA.postman_collection.json" to test on postman
+* please add local variable in postman host = 35.224.30.240 to make this work.
 * h2 console enabled on, can be accessed as below with default credentials username: sa, password:<blank>
 ```
 http://localhost:9090/h2-console/login.jsp ( if you run on docker locally )
-http://35.224.30.240/h2-console/login.jsp ( if you run on docker locally )
+http://35.224.30.240/h2-console/login.jsp ( GKE )
 
 ```
 ## Technologies involved
