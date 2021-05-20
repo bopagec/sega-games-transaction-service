@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: docker-k8s-sega-games-transaction-service-deployment
+  labels:
+    app: docker-k8s-sega-games-transaction-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: docker-k8s-sega-games-transaction-service
+  template:
+    metadata:
+      labels:
+        app: docker-k8s-sega-games-transaction-service
+    spec:
+      containers:
+      - name: docker-k8s-sega-games-transaction-service
+        image: bopagec/docker-sega-game-transaction-api
+        ports:
+        - containerPort: 8080

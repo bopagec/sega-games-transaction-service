@@ -11,12 +11,11 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/transactions/all",
+					"raw": "http://{{host}}/transactions/all",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"{{host}}"
 					],
-					"port": "8080",
 					"path": [
 						"transactions",
 						"all"
@@ -31,12 +30,11 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/transactions/16",
+					"raw": "http://{{host}}/transactions/16",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"{{host}}"
 					],
-					"port": "8080",
 					"path": [
 						"transactions",
 						"16"
@@ -51,12 +49,11 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/transactions/user/11",
+					"raw": "http://{{host}}/transactions/user/11",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"{{host}}"
 					],
-					"port": "8080",
 					"path": [
 						"transactions",
 						"user",
@@ -72,12 +69,11 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/transactions/product/1",
+					"raw": "http://{{host}}/transactions/product/1",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"{{host}}"
 					],
-					"port": "8080",
 					"path": [
 						"transactions",
 						"product",
@@ -102,12 +98,11 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/transact",
+					"raw": "http://{{host}}/transact",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"{{host}}"
 					],
-					"port": "8080",
 					"path": [
 						"transact"
 					]
